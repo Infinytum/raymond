@@ -7,9 +7,9 @@ import (
 
 // Partial represents a Partial template
 type Partial struct {
-	name   string
-	source string
-	tpl    *Template
+	Name   string
+	Source string
+	Tpl    *Template
 }
 
 // partials stores all global partials
@@ -24,12 +24,12 @@ func init() {
 	partials = make(map[string]*Partial)
 }
 
-// newPartial instanciates a new partial
-func newPartial(name string, source string, tpl *Template) *Partial {
+// NewPartial instanciates a new partial
+func NewPartial(name string, source string, tpl *Template) *Partial {
 	return &Partial{
-		name:   name,
-		source: source,
-		tpl:    tpl,
+		Name:   name,
+		Source: source,
+		Tpl:    tpl,
 	}
 }
 
@@ -42,7 +42,7 @@ func RegisterPartial(name string, source string) {
 		panic(fmt.Errorf("Partial already registered: %s", name))
 	}
 
-	partials[name] = newPartial(name, source, nil)
+	partials[name] = NewPartial(name, source, nil)
 }
 
 // RegisterPartials registers several global partials. Those partials will be available to all templates.
@@ -61,7 +61,7 @@ func RegisterPartialTemplate(name string, tpl *Template) {
 		panic(fmt.Errorf("Partial already registered: %s", name))
 	}
 
-	partials[name] = newPartial(name, "", tpl)
+	partials[name] = NewPartial(name, "", tpl)
 }
 
 // RemovePartial removes the partial registered under the given name. The partial will not be available globally anymore. This does not affect partials registered on a specific template.
@@ -94,14 +94,14 @@ func findPartial(name string) *Partial {
 
 // template returns parsed partial template
 func (p *Partial) template() (*Template, error) {
-	if p.tpl == nil {
+	if p.Tpl == nil {
 		var err error
 
-		p.tpl, err = Parse(p.source)
+		p.Tpl, err = Parse(p.Source)
 		if err != nil {
 			return nil, err
 		}
 	}
 
-	return p.tpl, nil
+	return p.Tpl, nil
 }

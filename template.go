@@ -90,7 +90,7 @@ func (tpl *Template) Clone() *Template {
 	}
 
 	for name, partial := range tpl.partials {
-		result.addPartial(name, partial.source, partial.tpl)
+		result.addPartial(name, partial.Source, partial.Tpl)
 	}
 
 	return result
@@ -133,7 +133,7 @@ func (tpl *Template) addPartial(name string, source string, template *Template) 
 		panic(fmt.Sprintf("Partial %s already registered", name))
 	}
 
-	tpl.partials[name] = newPartial(name, source, template)
+	tpl.partials[name] = NewPartial(name, source, template)
 }
 
 func (tpl *Template) findPartial(name string) *Partial {
