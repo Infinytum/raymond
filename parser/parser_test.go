@@ -5,8 +5,8 @@ import (
 	"regexp"
 	"testing"
 
-	"github.com/aymerick/raymond/ast"
-	"github.com/aymerick/raymond/lexer"
+	"github.com/infinytum/raymond/ast"
+	"github.com/infinytum/raymond/lexer"
 )
 
 type parserTest struct {
