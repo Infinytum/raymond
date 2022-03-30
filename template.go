@@ -16,7 +16,7 @@ type Template struct {
 	source   string
 	program  *ast.Program
 	helpers  map[string]reflect.Value
-	partials map[string]*partial
+	partials map[string]*Partial
 	mutex    sync.RWMutex // protects helpers and partials
 }
 
@@ -25,7 +25,7 @@ func newTemplate(source string) *Template {
 	return &Template{
 		source:   source,
 		helpers:  make(map[string]reflect.Value),
-		partials: make(map[string]*partial),
+		partials: make(map[string]*Partial),
 	}
 }
 
@@ -136,7 +136,7 @@ func (tpl *Template) addPartial(name string, source string, template *Template) 
 	tpl.partials[name] = newPartial(name, source, template)
 }
 
-func (tpl *Template) findPartial(name string) *partial {
+func (tpl *Template) findPartial(name string) *Partial {
 	tpl.mutex.RLock()
 	defer tpl.mutex.RUnlock()
 

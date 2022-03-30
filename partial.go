@@ -5,28 +5,28 @@ import (
 	"sync"
 )
 
-// partial represents a partial template
-type partial struct {
+// Partial represents a Partial template
+type Partial struct {
 	name   string
 	source string
 	tpl    *Template
 }
 
 // partials stores all global partials
-var partials map[string]*partial
+var partials map[string]*Partial
 
-var ResolvePartial func(view string) *partial = func(view string) *partial { return nil }
+var ResolvePartial func(view string) *Partial = func(view string) *Partial { return nil }
 
 // protects global partials
 var partialsMutex sync.RWMutex
 
 func init() {
-	partials = make(map[string]*partial)
+	partials = make(map[string]*Partial)
 }
 
 // newPartial instanciates a new partial
-func newPartial(name string, source string, tpl *Template) *partial {
-	return &partial{
+func newPartial(name string, source string, tpl *Template) *Partial {
+	return &Partial{
 		name:   name,
 		source: source,
 		tpl:    tpl,
@@ -77,11 +77,11 @@ func RemoveAllPartials() {
 	partialsMutex.Lock()
 	defer partialsMutex.Unlock()
 
-	partials = make(map[string]*partial)
+	partials = make(map[string]*Partial)
 }
 
 // findPartial finds a registered global partial
-func findPartial(name string) *partial {
+func findPartial(name string) *Partial {
 	partialsMutex.RLock()
 	defer partialsMutex.RUnlock()
 
@@ -93,7 +93,7 @@ func findPartial(name string) *partial {
 }
 
 // template returns parsed partial template
-func (p *partial) template() (*Template, error) {
+func (p *Partial) template() (*Template, error) {
 	if p.tpl == nil {
 		var err error
 

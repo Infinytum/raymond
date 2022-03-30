@@ -677,7 +677,7 @@ func (v *evalVisitor) helperOptions(node *ast.Expression) *Options {
 //
 
 // findPartial finds given partial
-func (v *evalVisitor) findPartial(name string) *partial {
+func (v *evalVisitor) findPartial(name string) *Partial {
 	// check template partials
 	if p := v.tpl.findPartial(name); p != nil {
 		return p
@@ -710,7 +710,7 @@ func (v *evalVisitor) partialContext(node *ast.PartialStatement) reflect.Value {
 }
 
 // evalPartial evaluates a partial
-func (v *evalVisitor) evalPartial(p *partial, node *ast.PartialStatement) string {
+func (v *evalVisitor) evalPartial(p *Partial, node *ast.PartialStatement) string {
 	// get partial template
 	partialTpl, err := p.template()
 	if err != nil {
