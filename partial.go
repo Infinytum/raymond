@@ -15,6 +15,8 @@ type partial struct {
 // partials stores all global partials
 var partials map[string]*partial
 
+var ResolvePartial func(view string) *partial = func(view string) *partial { return nil }
+
 // protects global partials
 var partialsMutex sync.RWMutex
 
@@ -83,7 +85,11 @@ func findPartial(name string) *partial {
 	partialsMutex.RLock()
 	defer partialsMutex.RUnlock()
 
-	return partials[name]
+	if partial, ok := partials[name]; ok {
+		return partial
+	}
+
+	return ResolvePartial(name)
 }
 
 // template returns parsed partial template
