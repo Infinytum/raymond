@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/infinytum/raymond/ast"
+	"github.com/infinytum/raymond/v2/ast"
 )
 
 var (

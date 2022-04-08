@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/infinytum/raymond"
+	"github.com/infinytum/raymond/v2"
 )
 
 // cf. https://github.com/infinytum/go-fuzz-tests/raymond

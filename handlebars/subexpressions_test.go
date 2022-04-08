@@ -3,7 +3,7 @@ package handlebars
 import (
 	"testing"
 
-	"github.com/infinytum/raymond"
+	"github.com/infinytum/raymond/v2"
 )
 
 //

@@ -5,7 +5,7 @@ import (
 	"regexp"
 	"testing"
 
-	"github.com/infinytum/raymond"
+	"github.com/infinytum/raymond/v2"
 )
 
 //

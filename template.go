@@ -7,8 +7,8 @@ import (
 	"runtime"
 	"sync"
 
-	"github.com/infinytum/raymond/ast"
-	"github.com/infinytum/raymond/parser"
+	"github.com/infinytum/raymond/v2/ast"
+	"github.com/infinytum/raymond/v2/parser"
 )
 
 // Template represents a handlebars template.

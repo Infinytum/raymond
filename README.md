@@ -66,7 +66,7 @@ package main
 import (
     "fmt"
 
-    "github.com/infinytum/raymond"
+    "github.com/infinytum/raymond/v2"
 )
 
 func main() {
@@ -116,7 +116,7 @@ package main
 import (
     "fmt"
 
-    "github.com/infinytum/raymond"
+    "github.com/infinytum/raymond/v2"
 )
 
 func main() {
@@ -200,7 +200,7 @@ package main
 import (
   "fmt"
 
-  "github.com/infinytum/raymond"
+  "github.com/infinytum/raymond/v2"
 )
 
 func main() {
@@ -1315,7 +1315,7 @@ package main
 import (
     "fmt"
 
-    "github.com/infinytum/raymond/lexer"
+    "github.com/infinytum/raymond/v2/lexer"
 )
 
 func main() {
@@ -1357,8 +1357,8 @@ package main
 import (
     "fmt"
 
-    "github.com/infinytum/raymond/ast"
-    "github.com/infinytum/raymond/parser"
+    "github.com/infinytum/raymond/v2/ast"
+    "github.com/infinytum/raymond/v2/parser"
 )
 
 fu  nc main() {

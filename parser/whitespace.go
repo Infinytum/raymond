@@ -3,7 +3,7 @@ package parser
 import (
 	"regexp"
 
-	"github.com/infinytum/raymond/ast"
+	"github.com/infinytum/raymond/v2/ast"
 )
 
 // whitespaceVisitor walks through the AST to perform whitespace control
