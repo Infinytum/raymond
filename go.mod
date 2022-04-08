@@ -1,4 +1,4 @@
-module github.com/infinytum/raymond
+module github.com/infinytum/raymond/v2
 
 go 1.18
 
